@@ -4,15 +4,18 @@ export interface HTMLInputEvent extends ChangeEvent {
   target: HTMLInputElement & EventTarget;
 }
 
+export interface PostData {
+  phoneNumber?: string;
+  otp?: string;
+}
+
 export interface PostRequestProps {
-  data: FormData;
+  data: PostData;
   path: string;
 }
 
-export interface PostResponseData {
-  code?: string;
-}
-
 export interface PostResponseProps {
-  data: PostResponseData;
+  otp?: string;
+  phoneNumber?: string;
+  valid: boolean;
 }
