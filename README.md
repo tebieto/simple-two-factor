@@ -57,3 +57,4 @@
 
 - Validate inputs sent to backend
 - Write unit test and e2e tests
+- Add better styling and accessibility
