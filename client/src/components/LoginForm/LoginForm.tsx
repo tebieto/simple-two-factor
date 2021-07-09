@@ -17,6 +17,10 @@ const LoginForm = () => {
   }, []);
 
   const handleSubmitPhoneNumber = useCallback(() => {
+    const min = 10;
+    if (phoneNumber.trim().length < min) {
+      return alert(`Phone number must be minimum of ${min} characters`);
+    }
     post({ path: "authenticate", data: { phoneNumber } }).then((res) => {
       console.log({ res });
       setValidate(true);
@@ -29,6 +33,10 @@ const LoginForm = () => {
   }, []);
 
   const handleSubmitOTP = useCallback(() => {
+    const min = 6;
+    if (otp.trim().length < min) {
+      return alert(`OTP must be minimum of ${min} characters`);
+    }
     post({ path: "validate", data: { phoneNumber, otp } }).then((res) => {
       if (res.valid) {
         setHideForm(true);
